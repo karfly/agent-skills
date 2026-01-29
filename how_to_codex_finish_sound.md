@@ -11,5 +11,5 @@ Important: this line must appear above all `[ ... ]` sections, for example at th
 One-line command to insert it at the top safely:
 
 ```
-line='notify = ["bash", "-lc", "afplay /System/Library/Sounds/Blow.aiff"]'; tmp=$(mktemp); { printf '%s\n' "$line"; cat ~/.codex/config.toml; } > "$tmp" && mv "$tmp" ~/.codex/config.toml
+line='notify = ["bash", "-lc", "afplay /System/Library/Sounds/Blow.aiff"]'; ed -s ~/.codex/config.toml <<< $'0a\n'"$line"$'\n.\nwq'
 ```
